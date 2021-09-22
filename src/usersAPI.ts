@@ -17,7 +17,15 @@ export class UsersAPI {
   }
 
   deleteUser(userId: number) {
-    const newUserList = users.filter((user) => user.id === userId);
+    let newUserList = [];
+
+    for (let index = 0; index < users.length; index++) {
+      const user = users[index];
+
+      if (user.id !== userId) {
+        newUserList.push(user);
+      }
+    }
 
     users = newUserList;
 
