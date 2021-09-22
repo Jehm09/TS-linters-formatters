@@ -124,7 +124,7 @@ Para que tu código se mantenga igual dentro de un grupo de varios desarrollador
 
 ### ESLint y Prettier
 
-Usando ESLint junto con prettier puedes generar errores cuando exista algun archivo que no tenga el formato correcto, esto es util ya que evita conflictos con otros desarrolladores trabajando en el mismo código.
+Usando ESLint junto con prettier puedes generar errores cuando exista algun archivo que no tenga el formato correcto, esto es útil ya que evita conflictos con otros desarrolladores trabajando en el mismo código.
 
 - Para configurar ESLint para usar prettier, añade las dependencias requeridas usando el comando `yarn add -D eslint-config-prettier eslint-plugin-prettier`
 - Ajusta la configuración de ESLint `.eslintrc`:
@@ -147,7 +147,7 @@ Usando ESLint junto con prettier puedes generar errores cuando exista algun arch
 
 - Ve al archivo `usersAPI.ts` y cambia las comillas simples `'` por comillas dobles `"`, guarda el archivo sin darle formato.
   > Si tienes instalada la extensión de VSCode de prettier, al guardar el formato se ajustará automaticamente. Para guardar el archivo sin darle formato puedes usar la barra de comandos, `⌘` + `shift` + `p` y escribr `save without formatting`
-- Corre el linter usando `yarn lint` ahora los errores de formato tambien aparecerán como errores del linter, esto hará el proceso de automatización mas completo, ya que no solo verificará las reglas del linter sino incluirá también la verificación del formato.
+- Corre el linter usando `yarn lint` ahora los errores de formato tambien aparecerán como errores del linter, esto hará el proceso de automatización más completo, ya que no solo verificará las reglas del linter sino incluirá también la verificación del formato.
 
 ### Automatización
 
