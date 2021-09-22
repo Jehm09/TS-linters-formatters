@@ -29,6 +29,8 @@ export class UsersAPI {
 
     users = newUserList;
 
+    console.log({ users });
+
     return users;
   }
 }
