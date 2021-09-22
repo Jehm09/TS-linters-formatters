@@ -107,7 +107,9 @@ Para que tu código se mantenga igual dentro de un grupo de varios desarrollador
   "tabWidth": 4
 }
 ```
+
 - Añade un script a tu `package.json` para correr el formateo de prettier:
+
 ```json
 {
   "scripts": {
@@ -116,14 +118,17 @@ Para que tu código se mantenga igual dentro de un grupo de varios desarrollador
   }
 }
 ```
+
 - Corre el script `yarn format`, revisa el archivo `usersAPI.ts` y verifica que los espacios hayan cambiado y que las comillas dobles `"` ahora sean comillas simples `'`
 - Usando la [extensión de VSCode de prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) puedes correr este comando automaticamente cada vez que guardes un archivo
 
 ### ESLint y Prettier
-Usando ESLint junto con prettier puedes generar errores cuando exista algun archivo que no tenga el formato correcto, esto es util ya que evita conflictos con otros desarrolladores trabajando en el mismo código.
+
+Usando ESLint junto con prettier puedes generar errores cuando exista algun archivo que no tenga el formato correcto, esto es útil ya que evita conflictos con otros desarrolladores trabajando en el mismo código.
 
 - Para configurar ESLint para usar prettier, añade las dependencias requeridas usando el comando `yarn add -D eslint-config-prettier eslint-plugin-prettier`
 - Ajusta la configuración de ESLint `.eslintrc`:
+
 ```json
 {
     ...
@@ -139,17 +144,19 @@ Usando ESLint junto con prettier puedes generar errores cuando exista algun arch
     ...
 }
 ```
-- Ve al archivo `usersAPI.ts` y cambia las comillas simples `'` por comillas dobles `"`, guarda el archivo sin darle formato.
-> Si tienes instalada la extensión de VSCode de prettier, al guardar el formato se ajustará automaticamente. Para guardar el archivo sin darle formato puedes usar la barra de comandos, `⌘` + `shift` + `p` y escribr `save without formatting`
-- Corre el linter usando `yarn lint` ahora los errores de formato tambien aparecerán como errores del linter, esto hará el proceso de automatización mas completo, ya que no solo verificará las reglas del linter sino incluirá también la verificación del formato.
 
+- Ve al archivo `usersAPI.ts` y cambia las comillas simples `'` por comillas dobles `"`, guarda el archivo sin darle formato.
+  > Si tienes instalada la extensión de VSCode de prettier, al guardar el formato se ajustará automaticamente. Para guardar el archivo sin darle formato puedes usar la barra de comandos, `⌘` + `shift` + `p` y escribr `save without formatting`
+- Corre el linter usando `yarn lint` ahora los errores de formato tambien aparecerán como errores del linter, esto hará el proceso de automatización más completo, ya que no solo verificará las reglas del linter sino incluirá también la verificación del formato.
 
 ### Automatización
+
 Ahora que tenemos las reglas de formato y de estilo del código podemos automatizar el proceso para que en cada commit se verifiquen las reglas definidas y tu código siempre mantenga el formato y el estilo correcto, sin importar quien trabaje en él. Para esto usaremos una libreria llamada `husky` que se encarga de correr comandos antes o despues de eventos de git, tales como `push` o `commit`
 
 - Instala husky usando el comando `yarn add -D husky@4.3.8`
-> Versiones recientes de Husky requieren una licencia, por eso usamos la versión gratuita
+  > Versiones recientes de Husky requieren una licencia, por eso usamos la versión gratuita
 - Añade el script que se ejecutará antes de un commit, ejecutaremos primero el formato y despues el linter usando `&&` si alguno de los dos comandos falla todo el comando fallará y no permitirá hacer el commit. Ajusta tu `package.json` asi:
+
 ```json
 {
     ...
@@ -161,7 +168,9 @@ Ahora que tenemos las reglas de formato y de estilo del código podemos automati
     ...
 }
 ```
+
 - Añade una nueva funcion al `UsersAPI.ts` para encontrar un usuario por id
+
 ```typescript
 export class UsersAPI {
     ...
@@ -178,6 +187,7 @@ export class UsersAPI {
     }
 }
 ```
+
 - Haz un commit desde tu consola, usando `git add .` y `git commit -m "add get users by id to users api"`
 - El commit debe fallar ya que existen errores del linter, el formato del archivo se ajusto automaticamente
 - Ajusta los errores y haz el commit de nuevo
